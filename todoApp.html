@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>TO DO LIST</title> <!---부트스트랩 스타일, 동적 정보 생성과 삭제 -->
+	<style>
+		h2 {
+			background-color: rgb(97, 62, 58);
+			text-align: center;
+			text-shadow: 1px 1px 1px rgb(192, 192, 192);		
+			color: rgb(246, 246, 246);
+			padding: 15px 0;
+		}
+		
+		button {
+			width: auto;
+			margin:auto;
+			background-color: rgb(97, 62, 58);
+			border-color: rgb(255, 255, 255);
+			color: white;
+			text-shadow: 1px 1px 1px rgb(128, 128, 128);
+		}
+		
+		ul {
+			list-style-type: none;
+		}
+
+	</style>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+		integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+</head>
+
+<body>
+	<div class = "container bg-success text-white shadow mx-auto mt-5 p-5 w-75 text-center center-block" style="width:300px; padding:15px;">
+		<h2>My To-Do App</h2>
+		<hr>
+		<div>
+			<input id="todoItem" type="text">
+			<button onclick="addTodoItem()">추가</button>
+		</div>
+		<hr>
+		<ul id="todolist"></ul>
+	</divclass>
+</body>
+
+<script>
+	function addTodoItem() {
+		// 입력값 읽어와서 todo 변수에 저장
+		let inTodo = document.getElementById("todoItem");
+		let listTodo = document.getElementById("todolist");
+		// 입력한 내용을 할일 List Item으로 만들기
+		let liNew= document.createElement("li");
+		liNew.innerText = inTodo.value;
+		let btnX = document.createElement("button");
+		btnX.className = "btn-close ms-auto";
+		btnX.onclick = function(e) {
+			let liChosen = e.target.parentNode;
+			listTodo.removeChild(liChosen);
+		};
+		liNew.appendChild(btnX);
+		// 이를 Ul(목록)에 담기
+		listTodo.appendChild(liNew);
+	}
+</script>
+
+</html>

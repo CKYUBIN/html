@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>TO DO LIST</title> <!---부트스트랩 스타일, 동적 정보 생성과 삭제 -->
+	<style>
+		h2 {
+			background-color: rgb(97, 62, 58);
+			text-align: center;
+			text-shadow: 1px 1px 1px rgb(192, 192, 192);
+			color: rgb(246, 246, 246);
+			padding: 15px 0;
+		}
+
+		button {
+			width: auto;
+			margin: auto;
+			background-color: rgb(97, 62, 58);
+			border-color: rgb(255, 255, 255);
+			color: white;
+			text-shadow: 1px 1px 1px rgb(128, 128, 128);
+		}
+	</style>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+		integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+</head>
+
+<body>
+	<div class="container bg-success text-white shadow mx-auto mt-5 p-5 w-75 text-center center-block"
+		style="width:300px; padding:15px;">
+		<h2>My To-Do App</h2>
+		<hr>
+		<div>
+			<input id="todoItem" type="text">
+			<button id="addButton">추가</button>
+		</div>
+		<hr>
+		<div id="todolist">
+		</div>
+		</divclass>
+</body>
+
+<script>
+	document.addEventListener('DOMContentLoaded', () => {
+		const todoItem = document.querySelector('#todoItem')
+		const addButton = document.querySelector('#addButton')
+		const todolist = document.querySelector('#todolist')
+
+		addButton.addEventListener('click', (event) => {
+			const item = document.createElement('div') // div
+
+			const checkBox = document.createElement('input') // 완료
+			checkBox.setAttribute('type', 'checkbox')
+
+
+			const text = document.createElement('span') // 내용
+			text.textContent = todoItem.value
+
+			const removeButton = document.createElement('button') // 삭제
+			removeButton.textContent = '삭제'
+
+
+			removeButton.addEventListener('click', (event) => {
+				event.currentTarget.parentNode.parentNode.removeChild(event.currentTarget.parentNode)
+			})
+
+			checkBox.addEventListener('change', (event) => {
+				if (checkBox.checked) {
+					text.style.textDecorationLine = "line-through"
+				} else {
+					text.style.textDecorationLine = "none"
+				}
+			})
+
+			item.appendChild(checkBox)
+			item.appendChild(text)
+			item.appendChild(removeButton)
+
+			todolist.appendChild(item)
+			todoItem.value = ''
+		})
+
+
+	})
+</script>
+
+</html>
