@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>회원가입 폼 예제</title>
+	<style>
+		h2 {
+			border-radius: 80px;
+			background-color: rgb(255, 181, 218);
+			text-align: center;
+			text-shadow: 1px 1px 1px rgb(128, 128, 128);		
+			color: rgb(246, 246, 246);
+			padding: 15px 0;
+		}
+
+		form[name="frmSignUp"] {
+			padding: 15px 230px;
+			border-radius: 10px;
+			background-color: rgb(255, 181, 218);
+			text-shadow: 1px 1px 1px rgb(128, 128, 128);	
+			color: white;
+			margin: auto;
+			width: 50%;
+		}
+		
+		button {
+			width: auto;
+			margin:auto;
+			background-color: rgb(255, 102, 179);
+			border-color: rgb(255, 108, 182);
+			color: white;
+			text-shadow: 1px 1px 1px rgb(128, 128, 128);	
+		}
+	</style>
+</head>
+
+<body>
+	<h2>회원가입</h2>
+	<hr>
+	<div id="regform">
+		<form name="frmSignUp" <label>이름<br><input type="text" name="txtName" size="40"><br></label><br>
+			<hr>
+			<label>이메일<br><input type="email" name="txtEmail" size="40"><br></label><br>
+			<button onclick="signUp()">가입</button>
+	</div>
+	<div>
+		<h3></h3>
+		<hr>
+		이름 : <span id="rName"></span><br>
+		이메일 : <spanid="rEmail"></spanid><br>
+	</div>
+</body>
+<script>
+	function signUp() {
+		var name = document.frmsignUp.txtName.value;
+		var eMail = document.frmsignUp.txtName.value;
+		alert(document.frmSignUp.txtEmail.value);
+		document.getElementById("rName").innerHTML = rName;
+		document.getElementById("rEmail").innerText = eMail;
+	}
+</script>
+
+</html>
