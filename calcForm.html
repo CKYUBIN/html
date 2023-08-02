@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>Simple Calculator</title>
+</head>
+
+<body>
+	<form method="get" action="/jsp.spring/calc">
+		<input type="number" name="operandFirst" size="10">
+		<select name="operator">
+			<option>+</option>
+			<option>-</option>
+			<option>*</option>
+			<option>/</option>
+		</select>
+		<input type="number" name="operandSecond" size="10">
+		<input type="submit" value="계산"> <!-- form action과 연결되어있음 -->
+	</form>
+</body>
+
+</html>
